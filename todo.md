@@ -37,3 +37,6 @@ tasks
 "id" serial primary key,
 "name" varchar (20),
 "complete" boolean:
+
+musicRouter = taskRouter
+/musicLibrary = /taskLis
