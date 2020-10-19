@@ -39,4 +39,4 @@ tasks
 "complete" boolean:
 
 musicRouter = taskRouter
-/musicLibrary = /taskLis
+/musicLibrary = /taskList

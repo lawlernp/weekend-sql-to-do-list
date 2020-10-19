@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
+    <script src="vendors/jquery-3.5.1.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    HOLA
+    <div id = "inputContainer">
+        Create new ToDo: <input id="taskInput" type="text" placeholder="Task"> <button id=buttonSubmit>Submit</button>
+    </div>
+    <div id = "taskContainer">
+        <table>
+            <thead>
+                <tr>
+                    <th>Todo</th>
+                    <th>Done?</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody id="listBody">
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
