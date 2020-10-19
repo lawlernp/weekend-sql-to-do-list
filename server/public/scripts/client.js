@@ -21,7 +21,7 @@ function submitTask() {
         $('#taskInput').val(''),
         getTasks();
     });
-} // end submitTask
+} // end submitTask/POST
 
 function getTasks() {
     $("#listBody").empty();
@@ -57,7 +57,7 @@ function getTasks() {
             `);}
         }
     });
-} // end getTasks
+} // end getTasks/GET
 
 function deleteTask(){
     console.log('clicked');
@@ -73,7 +73,7 @@ function deleteTask(){
         console.log('error', error);
     });
 
-} // end deleteTask
+} // end deleteTask/DELETE
 
 function completeTask(){
     let completeStatus = $(this).data('completeStatus');
@@ -90,7 +90,4 @@ function completeTask(){
         console.log('error in put', error);
     });
 
-} // end completeTask
-
-
-console.log('js')
+} // end completeTask/PUT
