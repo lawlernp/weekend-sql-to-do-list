@@ -34,9 +34,9 @@ function getTasks() {
         for (let i = 0; i < response.length; i++) {
             if (response[i].complete){
             $('#listBody').append(`
-                <tr data-id=${response[i].id}>
+                <tr data-id=${response[i].id} class=complete>
                     <td>${response[i].name}</td>
-                    <td>${response[i].complete}</td>
+                    <td>YES!</td>
                     <td><button class="deleteBtn">delete</button></td>
                     <td>
                         <input type="checkbox" id="completed" checked>
@@ -45,9 +45,9 @@ function getTasks() {
             `);}
             else{
             $('#listBody').append(`
-                <tr data-id=${response[i].id}>
+                <tr data-id=${response[i].id} class=incomplete>
                     <td>${response[i].name}</td>
-                    <td>${response[i].complete}</td>
+                    <td>NOT YET!</td>
                     <td><button class="deleteBtn">delete</button></td>
                     <td><button data-completeStatus=${response[i].complete} class="completeBtn">complete</button></td>
                     <td>
@@ -63,7 +63,6 @@ function deleteTask(){
     console.log('clicked');
     let taskId = $(this).closest('tr').data('id');
     console.log(taskId);
-    // this is where I was to fire an ajax request - to DELETE
     $.ajax({
         method: 'DELETE',
         url: `/taskList/${taskId}`
@@ -80,7 +79,6 @@ function completeTask(){
     let completeStatus = $(this).data('completeStatus');
     let taskId = $(this).closest('tr').data('id');
     console.log("clicked", completeStatus, taskId);
-
     $.ajax({
         method: 'PUT',
         url: `/taskList/complete/${taskId}`,
