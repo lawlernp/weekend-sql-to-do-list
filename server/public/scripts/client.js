@@ -1,12 +1,12 @@
 $(document).ready(onReady)
 function onReady() {
     console.log('jq');
-    $('#buttonSubmit').on('click', submitTask);
-    $('#listBody').on('click', '.completeBtn', completeTask);
-    $('#listBody').on('click', '.deleteBtn', deleteTask);
+    $('#buttonSubmit').on('click', submitTask); // listening to submit button
+    $('#listBody').on('click', '.completeBtn', completeTask); // listening to potential complete buttons
+    $('#listBody').on('click', '.deleteBtn', deleteTask); // listening to potential delete buttons
 
     getTasks();
-}
+} // end onReady
 
 function submitTask() {
     let payloadObject = {
@@ -21,7 +21,7 @@ function submitTask() {
         $('#taskInput').val(''),
         getTasks();
     });
-}
+} // end submitTask
 
 function getTasks() {
     $("#listBody").empty();
@@ -32,7 +32,7 @@ function getTasks() {
         console.log("skjfhsd", response);
         // append data to the DOM
         for (let i = 0; i < response.length; i++) {
-            if (response[i].complete){
+            if (response[i].complete){  // checking if complete or not, setting class accordingly
             $('#listBody').append(`
                 <tr data-id=${response[i].id} class=complete>
                     <td>${response[i].name}</td>
@@ -57,7 +57,7 @@ function getTasks() {
             `);}
         }
     });
-};
+} // end getTasks
 
 function deleteTask(){
     console.log('clicked');
@@ -73,7 +73,7 @@ function deleteTask(){
         console.log('error', error);
     });
 
-}
+} // end deleteTask
 
 function completeTask(){
     let completeStatus = $(this).data('completeStatus');
@@ -90,5 +90,7 @@ function completeTask(){
         console.log('error in put', error);
     });
 
-}
+} // end completeTask
+
+
 console.log('js')

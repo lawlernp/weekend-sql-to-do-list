@@ -4,14 +4,14 @@ const pool = require('../modules/pool');
 
 
 router.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "tasks" ORDER BY "complete" DESC;';
+    let queryText = 'SELECT * FROM "tasks" ORDER BY "complete";'; // sql command to send back tasks by completion status
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error)=>{
         console.log("error with get request", error);
         res.sendStatus(500);
     })
-});
+}); //end GET
 
 router.post('/', (req, res) => {
     console.log('req.body', req.body);
@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
         console.log(error);
         res.sendStatus(500);
     })
-});
+}); //end POST
 
 router.delete('/:idParam', (req, res) => {
     console.log("hello from DELETE", req.params.idParam);
@@ -41,7 +41,7 @@ router.delete('/:idParam', (req, res) => {
         console.log('error in delete', error);
         res.sendStatus(500);
     });
-});
+}); //end DELETE
 
 router.put('/complete/:idParam', (req,res) => {
     console.log('in put request', req.body.completeStatus, req.params.idParam );
@@ -55,7 +55,7 @@ router.put('/complete/:idParam', (req,res) => {
         res.sendStatus(500);
     });
 
-});
+}); //end PUT
 
 
 
